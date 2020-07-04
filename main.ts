@@ -19,6 +19,25 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+let mySprite = sprites.create(img`
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 1 1 1 1 1 2 2 1 1 1 1 1 2 2 
+2 2 1 1 1 1 1 2 2 1 1 1 1 1 2 2 
+2 2 f f f 1 1 2 2 f f f 1 1 2 2 
+2 2 f f f 1 1 2 2 f f f 1 1 2 2 
+2 2 f f f 1 1 2 2 f f f 1 1 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 4 4 4 4 4 4 4 4 4 4 4 4 4 4 2 
+2 4 4 1 1 1 1 1 1 1 1 1 1 4 4 2 
+2 2 4 4 1 1 1 1 1 1 1 1 4 4 2 2 
+2 2 2 4 4 4 4 4 4 4 4 4 4 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+`, SpriteKind.Player)
+controller.moveSprite(mySprite)
 scene.setBackgroundImage(img`
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
@@ -179,3 +198,6 @@ tiles.setTilemap(tiles.createTilemap(
             [myTiles.tile0,sprites.castle.tileGrass1,sprites.castle.tileGrass2,sprites.castle.tilePath5,sprites.castle.tilePath1,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath4,sprites.castle.tilePath6,sprites.castle.tilePath8,sprites.castle.tilePath7,sprites.castle.tilePath9],
             TileScale.Sixteen
         ))
+scene.cameraShake(4, 2000)
+scene.centerCameraAt(120, 80)
+scene.cameraFollowSprite(mySprite)
