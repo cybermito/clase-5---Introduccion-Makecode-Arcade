@@ -19,6 +19,9 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+scene.onHitWall(SpriteKind.Player, function (sprite) {
+    sprite.setPosition(128, 128)
+})
 let mySprite = sprites.create(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -37,6 +40,7 @@ let mySprite = sprites.create(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `, SpriteKind.Player)
+mySprite.setPosition(110, 30)
 controller.moveSprite(mySprite)
 scene.setBackgroundImage(img`
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
@@ -161,29 +165,28 @@ e 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `)
 tiles.setTilemap(tiles.createTilemap(
-            hex`100010000202020101010405020202020202020202020201010107030606060606060606010101010101070309090909090909090101010101010708020202020202020201010101010107080202010101010101040606060606030801010101010101010a0303090909030801010101010101010107080101010708010101010101010101070801010107080101010101010101010708010101070306060606060606060107080101010703090909090909090901070306060603080101010101010101010a0909090b07080101010101010101010101010101070801010101010101010101010101010708010101010101010101010101010107080101010101010101`,
+            hex`100010000202020202020703080d0d0d0d0d0d0d0202020202020703080d0d0d0d0d0d0d0202020202020703080d0d0d0d0d0d0d0202020202020703080d0d0d0d0d0d0d0202020202020703080d0d0d0d0d0d0d020202020204030303050d0d0d0d0d0d0606060606030303030306060606060603030303030303030303030303030303090909090903030303030909090909090d0d0d0d0d0a0303030b0202020202020d0d0d0d0d0d070308020202020202020d0d0d0d0d0d070308020202020202020d0d0d0d0d0d070308020202020202020d0d0d0d0d0d070308020202020202020d0d0d0d0d0d070308020202020202020d0d0d0d0d0d07030802020202020202`,
             img`
-. . . . . 2 . . 2 2 2 2 2 2 2 2 
-. . . . . 2 . . . . . . . . . . 
-. . . . . 2 . . . . . . . . . . 
-. . . . . 2 . . 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 . . 2 . . . . . . . 
-. . . . . . . . 2 . . . . . . . 
-. . . . . . . . 2 . . . . . . . 
-2 . . 2 2 2 . . 2 . . . . . . . 
-2 . . 2 . 2 . . 2 2 2 2 2 2 2 2 
-2 . . 2 . 2 . . . . . . . . . . 
-2 . . 2 2 2 . . . . . . . . . . 
-2 . . . . . . . 2 2 2 2 2 2 2 2 
-2 . . . . . . . 2 . . . . . . . 
-2 2 2 2 2 2 . . 2 . . . . . . . 
-. . . . . 2 . . 2 . . . . . . . 
-. . . . . 2 . . 2 . . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . 2 2 . . . 2 2 . . . . . 
+2 2 2 2 2 . . . . . 2 2 2 2 2 2 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+2 2 2 2 2 . . . . . 2 2 2 2 2 2 
+. . . . 2 2 . . . 2 2 . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
 `,
-            [myTiles.tile0,sprites.castle.tileGrass1,sprites.castle.tileGrass2,sprites.castle.tilePath5,sprites.castle.tilePath1,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath4,sprites.castle.tilePath6,sprites.castle.tilePath8,sprites.castle.tilePath7,sprites.castle.tilePath9],
+            [myTiles.tile0,sprites.castle.tileGrass1,sprites.castle.tileGrass2,sprites.castle.tilePath5,sprites.castle.tilePath1,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath4,sprites.castle.tilePath6,sprites.castle.tilePath8,sprites.castle.tilePath7,sprites.castle.tilePath9,sprites.castle.tileDarkGrass2,sprites.castle.tileGrass3],
             TileScale.Sixteen
         ))
 scene.cameraShake(4, 2000)
 scene.centerCameraAt(120, 80)
 scene.cameraFollowSprite(mySprite)
-mySprite.setPosition(128, 128)
