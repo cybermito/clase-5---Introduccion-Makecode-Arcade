@@ -20,7 +20,7 @@ namespace myTiles {
 `
 }
 scene.onHitWall(SpriteKind.Player, function (sprite) {
-    sprite.setPosition(128, 128)
+    sprite.say("Ouch!", 500)
 })
 let mySprite = sprites.create(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
